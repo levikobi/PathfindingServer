@@ -13,9 +13,15 @@ public class MyTestClientHandler implements ClientHandler {
 
     @Override
     public void handleClient(InputStream inFromClient, OutputStream outToClient) {
-        BufferedReader userInput = new BufferedReader(new InputStreamReader(inFromClient));
+        try {
+            BufferedReader userInput = new BufferedReader(new InputStreamReader(inFromClient));
+            PrintWriter outToScreen = new PrintWriter(outToClient);
 
+            readInputsAndSend(userInput, outToScreen, "end");
 
+            userInput.close();
+            outToScreen.close();
+        } catch (IOException e) { e.printStackTrace(); }
     }
 
     private void readInputsAndSend(BufferedReader in, PrintWriter out, String exitStr) {
