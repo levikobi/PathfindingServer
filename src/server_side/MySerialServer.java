@@ -13,9 +13,7 @@ public class MySerialServer implements Server {
         new Thread(() -> {
             try {
                 runServer(port, ch);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            } catch (Exception e) { e.printStackTrace(); }
         }).start();
     }
 
@@ -27,10 +25,6 @@ public class MySerialServer implements Server {
                 Socket aClient = server.accept();
                 try {
                     ch.handleClient(aClient.getInputStream(), aClient.getOutputStream());
-
-                    // Those closing calls should be delegated to the ClientHandler!
-//                    aClient.getInputStream().close();
-//                    aClient.getOutputStream().close();
                     aClient.close();
                 } catch (IOException e) { e.printStackTrace(); }
             } catch (SocketTimeoutException e) { e.printStackTrace(); }
