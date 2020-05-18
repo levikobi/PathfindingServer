@@ -21,7 +21,7 @@ public class BestFirstSearch<T> extends CommonSearcher<T> {
             List<State<T>> successors = s.getAllPossibleStates(n);
             for (State<T> state : successors) {
                 if (!closedSet.contains(state) && !openListContains(state)) {
-//                    state.setCameFrom(n); TODO - DONT FORGET State.setCameFrom()
+                    state.setCameFrom(n);
                     addToOpenList(state);
                 } else {
                     // TODO - DONT FORGET TO COMPLETE THE ALGORITHM WITH PSEUDOCODE

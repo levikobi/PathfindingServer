@@ -21,12 +21,17 @@ public class State<T> {
         this.cost = cost;
     }
 
-    /**
-     ********** TODO! *********
-     */
+    public State<T> getCameFrom() {
+        return cameFrom;
+    }
+
+    public void setCameFrom(State<T> cameFrom) {
+        this.cameFrom = cameFrom;
+    }
+
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return this.toString().hashCode();
     }
 
     //    public static void main(String[] args) {
