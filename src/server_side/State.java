@@ -21,7 +21,15 @@ public class State<T> {
         this.cost = cost;
     }
 
-//    public static void main(String[] args) {
+    /**
+     ********** TODO! *********
+     */
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    //    public static void main(String[] args) {
 //        State<String> a, b, goal;
 //        a = new State<>("A");
 //        b = new State<>("B");

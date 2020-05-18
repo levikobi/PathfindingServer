@@ -11,9 +11,21 @@ public abstract class CommonSearcher<T> implements Searcher<T> {
         this.evaluatedNodes = 0;
     }
 
+    final protected void addToOpenList(State<T> state) {
+        openList.add(state);
+    }
+
     final protected State<T> popOpenList() {
         evaluatedNodes++;
         return openList.poll();
+    }
+
+    protected boolean isOpenListEmpty() {
+        return openList.isEmpty();
+    }
+
+    protected boolean openListContains(State<T> state) {
+        return openList.contains(state);
     }
 
     @Override
