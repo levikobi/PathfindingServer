@@ -14,8 +14,7 @@ public class BestFirstSearch<T> extends CommonSearcher<T> {
             closedSet.add(n);
 
             if (s.isGoalState(n)) {
-//                return backTrace(n, s.getInitialState());
-                // TODO: need to decide if I want to implement it in the BFS class itself, or at the CommonSearcher level
+                return backTrace(n, s.getInitialState());
             }
 
             List<State<T>> successors = s.getAllPossibleStates(n);

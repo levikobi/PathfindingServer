@@ -34,6 +34,11 @@ public abstract class CommonSearcher<T> implements Searcher<T> {
         return openList.contains(state);
     }
 
+    protected Solution backTrace(State<T> goalState, State<T> initialState) {
+        // TODO...
+        return null;
+    }
+
     @Override
     public abstract Solution search(Searchable<T> s);
 
