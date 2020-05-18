@@ -9,6 +9,12 @@ public class State<T> {
         this.state = state;
     }
 
+    public State(State<T> state) {
+        this.state = state.state;
+        this.cost = state.cost;
+        this.cameFrom = state.cameFrom;
+    }
+
     public boolean equals(State<T> s) {
         return state.equals(s.state);
     }

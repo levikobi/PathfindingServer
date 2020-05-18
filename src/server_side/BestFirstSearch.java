@@ -7,7 +7,7 @@ public class BestFirstSearch<T> extends CommonSearcher<T> {
     @Override
     public Solution search(Searchable<T> s) {
         addToOpenList(s.getInitialState());
-        HashSet<State<T>> closedSet = new HashSet<State<T>>(); // TODO - DONT FORGET State.hashCode()
+        HashSet<State<T>> closedSet = new HashSet<State<T>>();
 
         while (!isOpenListEmpty()) {
             State<T> n = popOpenList();
@@ -22,9 +22,15 @@ public class BestFirstSearch<T> extends CommonSearcher<T> {
             for (State<T> state : successors) {
                 if (!closedSet.contains(state) && !openListContains(state)) {
                     state.setCameFrom(n);
+                    state.setCost(n.getCost() + s.getWeight(n, state));
                     addToOpenList(state);
-                } else {
-                    // TODO - DONT FORGET TO COMPLETE THE ALGORITHM WITH PSEUDOCODE
+                } else if (n.getCost() + s.getWeight(n, state) < state.getCost()) {
+                    state.setCameFrom(n);
+                    state.setCost(n.getCost() + s.getWeight(n, state));
+                    if (openListContains(state)) {
+                        popOpenList(state);
+                    }
+                    addToOpenList(state);
                 }
             }
         }

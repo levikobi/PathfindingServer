@@ -12,12 +12,18 @@ public abstract class CommonSearcher<T> implements Searcher<T> {
     }
 
     final protected void addToOpenList(State<T> state) {
-        openList.add(state);
+        openList.add(new State<T>(state));
     }
 
     final protected State<T> popOpenList() {
         evaluatedNodes++;
         return openList.poll();
+    }
+
+    final protected State<T> popOpenList(State<T> state) {
+        evaluatedNodes++;
+        openList.remove(state);
+        return state;
     }
 
     protected boolean isOpenListEmpty() {
