@@ -20,7 +20,7 @@ public abstract class CommonClientHandler implements ClientHandler {
                 public void run() {
                     stop = true;
                 }
-            }, 60 * 1000);
+            }, 5 * 60 * 1000);
 
             while (!stop) {
                 readInputsAndSend(userInput, outToScreen);

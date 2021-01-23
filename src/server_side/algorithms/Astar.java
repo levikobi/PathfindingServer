@@ -9,7 +9,6 @@ public final class Astar<T> extends CommonSearcher<T> {
     public ShortestPath<T> search(Searchable<T> s) {
         initializeOpenList(s.getInitialState());
         Set<State<T>> closedSet = new HashSet<>();
-        double weightLimit = s.getWeightLimit();
 
         while (!isOpenListEmpty()) {
             State<T> n = popOpenList(); 
@@ -19,8 +18,6 @@ public final class Astar<T> extends CommonSearcher<T> {
 
             List<State<T>> successors = s.getAllPossibleStates(n);
             for (State<T> state : successors) {
-                if (state.getCostToReachHere() - n.getCostToReachHere() >= weightLimit) continue;
-
                 if (!closedSet.contains(state) && !openListContains(state)) {
                     state.setStateWeCameFrom(n);
                     state.setCostToReachHere(n.getCostToReachHere() + 1);

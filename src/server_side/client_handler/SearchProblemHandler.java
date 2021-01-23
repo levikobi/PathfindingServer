@@ -38,7 +38,7 @@ public final class SearchProblemHandler extends CommonClientHandler {
         } while (!line.equals("end"));
         clientInput.add(scanner.nextLine()); // entry point
         clientInput.add(scanner.nextLine()); // target point
-        clientInput.add(scanner.nextLine()); // weight limit
+        clientInput.add(scanner.nextLine()); // height limit
     }
 
     private void sendClientInput(PrintWriter out) {

@@ -33,7 +33,7 @@ public abstract class MazeDomain implements Searchable<Position> {
             for (String currNum : currLine.split(",")) {
                 board[col][row++] = Integer.parseInt(currNum);
             }
-            row=0;
+            row = 0;
             col++;
         }
     }
